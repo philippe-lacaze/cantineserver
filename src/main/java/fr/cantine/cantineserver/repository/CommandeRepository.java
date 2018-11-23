@@ -11,7 +11,19 @@ import reactor.core.publisher.Mono;
  */
 @Repository
 public interface CommandeRepository extends ReactiveMongoRepository<Commande, String> {
+
+    /**
+     * Retourne un Mono sur la Commande d'id donné.
+     * @param clientDate donné.
+     * @return
+     */
     Mono<Commande> findByClientDate(String clientDate);
 
+    /**
+     * Retourne un Flux de Commandes pour la date donnée.
+     * @param dateCommande
+     * @return
+     */
     Flux<Commande> findByDateCommande(String dateCommande);
+
 }
